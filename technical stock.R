@@ -1,0 +1,13 @@
+msft<-getSymbols("MSFT",auto.assign = F)
+head(msft)
+tail(msft)
+tsla<-getSymbols("TSLA",auto.assign = F)
+tsla_daily_return<-dailyReturn(tsla$TSLA.Adjusted)
+chartSeries(msft,type="line")
+chartSeries(msft,type="line",subset ="2019" )
+chartSeries(msft,type="candlesticks",subset ="2019" )
+chartSeries(msft,type="candlesticks",subset ="2019-01-02::2019-03-02" )
+chartSeries(msft,subset = "2020",TA = "addBBands(n=20,sd=2)")
+chartSeries(msft,TA = c(addBBands(n=20,sd=2),addRSI()),subset = "2020")
+chartSeries(msft,TA = c(addBBands(n=20,sd=2),addRSI(),addEMA(n=50)),subset = "2020")
+            
